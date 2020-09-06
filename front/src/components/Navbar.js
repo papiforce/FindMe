@@ -65,7 +65,7 @@ export class Navbar extends Component {
     }
 
     var button = null;
-    if(!window.location.href.split('/').pop() === "") {
+    if(window.location.href.split('/').pop() !== "") {
       button = (
         <Fragment>
           <ListItem button onClick={() => {this.setState({ redirectHome: true })}}>
