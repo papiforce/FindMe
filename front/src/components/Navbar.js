@@ -64,6 +64,27 @@ export class Navbar extends Component {
       return <Redirect to="/profil" />
     }
 
+    var button = null;
+    if(!window.location.href.split('/').pop() === "") {
+      button = (
+        <Fragment>
+          <ListItem button onClick={() => {this.setState({ redirectHome: true })}}>
+            <ListItemIcon><ListIcon /></ListItemIcon>
+            <ListItemText primary="Collection" />
+          </ListItem>
+        </Fragment>
+      )
+    } else {
+      button = (
+        <Fragment>
+          <ListItem button>
+            <ListItemIcon><ListIcon /></ListItemIcon>
+            <ListItemText primary="Collection" />
+          </ListItem>
+        </Fragment>
+      )
+    }
+
     return (
       <Fragment>
         <CssBaseline />
@@ -84,10 +105,7 @@ export class Navbar extends Component {
           <Toolbar />
           <div className={classes.drawerContainer}>
             <List>
-              <ListItem button onClick={() => {this.setState({ redirectHome: true })}}>
-                <ListItemIcon><ListIcon /></ListItemIcon>
-                <ListItemText primary="Collection" />
-              </ListItem>
+              {button}
             </List>
             <Divider />
             <List>
