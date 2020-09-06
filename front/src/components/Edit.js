@@ -263,8 +263,8 @@ export class Edit extends Component {
                         <MenuItem value="">
                           <em>Disponibilité</em>
                         </MenuItem>
-                        <MenuItem value={false}>Indisponible</MenuItem>
-                        <MenuItem value={true}>Disponible</MenuItem>
+                        <MenuItem value={"false"}>Indisponible</MenuItem>
+                        <MenuItem value={"true"}>Disponible</MenuItem>
                       </Select>
                     </FormControl>
                     <div className="Button">
