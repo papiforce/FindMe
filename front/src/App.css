@@ -1,0 +1,40 @@
+.loginApp {
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.loginApp-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgray;
+  padding: 50px;
+}
+
+.Button {
+  padding: 40px;
+}
+
+.addLink {
+  font-size: 17px;
+  padding: 12px;
+  display: flex;
+  width: 12%;
+  border: 2px solid #3f51b5;
+  border-radius: 3.75em;
+}
+
+.addLink:hover {
+  cursor: pointer;
+}
