@@ -125,7 +125,7 @@ export class Home extends Component {
     if(auth.data.role === "SUPER_ADMIN") {
       add = (
         <Fragment>
-          <Link color="primary" className="addLink" to="/produit/creation"><AddIcon />
+          <Link color="primary" className="addLink" href="/produit/creation"><AddIcon />
             Ajouter un produit
           </Link>
         </Fragment>
