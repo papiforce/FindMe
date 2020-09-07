@@ -64,9 +64,9 @@ export class Navbar extends Component {
       return <Redirect to="/profil" />
     }
 
-    var button = null;
+    var buttonHome = null;
     if(window.location.href.split('/').pop() !== "") {
-      button = (
+      buttonHome = (
         <Fragment>
           <ListItem button onClick={() => {this.setState({ redirectHome: true })}}>
             <ListItemIcon><ListIcon /></ListItemIcon>
@@ -75,11 +75,32 @@ export class Navbar extends Component {
         </Fragment>
       )
     } else {
-      button = (
+      buttonHome = (
         <Fragment>
           <ListItem button>
             <ListItemIcon><ListIcon /></ListItemIcon>
             <ListItemText primary="Collection" />
+          </ListItem>
+        </Fragment>
+      )
+    }
+
+    var buttonProfile = null;
+    if(window.location.href.split('/').pop() !== "profil") {
+      buttonProfile = (
+        <Fragment>
+          <ListItem button onClick={() => {this.setState({ redirectProfile: true })}}>
+            <ListItemIcon><PersonIcon /></ListItemIcon>
+            <ListItemText primary="Profil" />
+          </ListItem>
+        </Fragment>
+      )
+    } else {
+      buttonProfile = (
+        <Fragment>
+          <ListItem button>
+            <ListItemIcon><PersonIcon /></ListItemIcon>
+            <ListItemText primary="Profil" />
           </ListItem>
         </Fragment>
       )
@@ -105,14 +126,11 @@ export class Navbar extends Component {
           <Toolbar />
           <div className={classes.drawerContainer}>
             <List>
-              {button}
+              {buttonHome}
             </List>
             <Divider />
             <List>
-              <ListItem button onClick={() => {this.setState({ redirectProfile: true })}}>
-                <ListItemIcon><PersonIcon /></ListItemIcon>
-                <ListItemText primary="Profil" />
-              </ListItem>
+              {buttonProfile}
               <ListItem button onClick={this.logout}>
                 <ListItemIcon><ExitToAppIcon /></ListItemIcon>
                 <ListItemText primary="Déconnexion" />

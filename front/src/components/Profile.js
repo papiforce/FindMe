@@ -48,7 +48,7 @@ export class Profile extends Component {
   render() {
     const { classes } = this.props;
 
-    console.log(this.state.user);
+    console.log(window.location.href.split('/').pop());
     var role = null;
     if(this.state.user.role === "SUPER_ADMIN") {
       role = "Administrateur";
