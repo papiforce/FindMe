@@ -48,7 +48,7 @@ export class Edit extends Component {
     document.title = "FindMe | Modification";
     var auth = JSON.parse(localStorage.getItem('user'));
 
-    if(!auth || auth.data.role !== "SUPER_ADMIN") {
+    if(!auth || auth.data.role !== "SUPER_ADMIN"  || auth === null) {
       this.setState({ redirect: true });
     }
 
