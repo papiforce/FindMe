@@ -47,7 +47,7 @@ export class Create extends Component {
     document.title = "FindMe | Création";
     var auth = JSON.parse(localStorage.getItem('user'));
 
-    if(!auth || auth.data.role !== "SUPER_ADMIN") {
+    if(!auth || auth.data.role !== "SUPER_ADMIN"  || auth === null) {
       this.setState({ redirect: true });
     }
   }
