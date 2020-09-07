@@ -66,7 +66,7 @@ export class Home extends Component {
     var auth = JSON.parse(localStorage.getItem('user'));
     console.log(auth);
 
-    if(!auth) {
+    if(!auth || auth === null) {
       this.setState({ redirect: true });
     }
 
@@ -75,20 +75,21 @@ export class Home extends Component {
 
   products() {
     var auth = JSON.parse(localStorage.getItem('user'));
-
-    axios({
-      method: 'GET',
-      url: 'http://localhost:4000/products/',
-      headers: {
-        Authorization: `Bearer ${auth.data.token}`
-      }
-    })
-    .then(res => {
-      this.setState({ products: res.data });
-    })
-    .catch(function(err) {
-      console.log(err);
-    })
+    if(auth !== null) {
+      axios({
+        method: 'GET',
+        url: 'http://localhost:4000/products/',
+        headers: {
+          Authorization: `Bearer ${auth.data.token}`
+        }
+      })
+      .then(res => {
+        this.setState({ products: res.data });
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+    }
   }
 
   delete(e) {
@@ -122,16 +123,18 @@ export class Home extends Component {
     var auth = JSON.parse(localStorage.getItem('user'));
     var add = null;
 
-    if(auth.data.role === "SUPER_ADMIN") {
-      add = (
-        <Fragment>
-          <Link color="primary" className="addLink" href="/produit/creation"><AddIcon />
-            Ajouter un produit
-          </Link>
-        </Fragment>
-      );
-    } else {
-      add = null;
+    if(auth !== null) {
+      if(auth.data.role === "SUPER_ADMIN") {
+        add = (
+          <Fragment>
+            <Link color="primary" className="addLink" href="/produit/creation"><AddIcon />
+              Ajouter un produit
+            </Link>
+          </Fragment>
+        );
+      } else {
+        add = null;
+      }
     }
 
     const productList = this.state.products.length ? (
