@@ -48,7 +48,7 @@ export class Edit extends Component {
     document.title = "FindMe | Modification";
     var auth = JSON.parse(localStorage.getItem('user'));
 
-    if(!auth || auth.data.role !== "SUPER_ADMIN") {
+    if(!auth || auth.data.role !== "SUPER_ADMIN"  || auth === null) {
       this.setState({ redirect: true });
     }
 
@@ -189,7 +189,7 @@ export class Edit extends Component {
             <div className={classes.root2}>
               <Grid item xs={12}>
                 <Typography variant="h6" className={classes.title}>
-                  Modifier le produit — {this.state.product.name}
+                  Modifier — {this.state.product.name}
                 </Typography>
                 {alert}
                 <div className="loginApp">
@@ -263,8 +263,8 @@ export class Edit extends Component {
                         <MenuItem value="">
                           <em>Disponibilité</em>
                         </MenuItem>
-                        <MenuItem value={false}>Indisponible</MenuItem>
-                        <MenuItem value={true}>Disponible</MenuItem>
+                        <MenuItem value={"false"}>Indisponible</MenuItem>
+                        <MenuItem value={"true"}>Disponible</MenuItem>
                       </Select>
                     </FormControl>
                     <div className="Button">

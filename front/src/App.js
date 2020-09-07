@@ -6,6 +6,7 @@ import Login from './components/Login.js';
 import Create from './components/Create.js';
 import Edit from './components/Edit.js';
 import Register from './components/Register.js';
+import Profile from './components/Profile.js';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/produit/creation" component={Create} />
       <Route path="/produit/modification" component={Edit} />
       <Route path="/inscription" component={Register} />
+      <Route exact path="/profil" component={Profile} />
     </Router>
   );
 }
